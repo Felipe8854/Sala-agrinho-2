@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo e Cidade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .container {
+            width: 45%;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        .container img {
+            width: 100%;
+            height: auto;
+        }
+        .text {
+            padding: 20px;
+            background-color: #fff;
+        }
+        .text h2 {
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .upload-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .upload-container input[type="file"] {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Campo e Cidade</h1>
+    </header>
+
+    <section>
+        <!-- Imagem e texto sobre o Campo -->
+        <div class="container">
+            <img id="campoImg" src="campo.jpg" alt="Paisagem do Campo">
+            <div class="text">
+                <h2>O Campo</h2>
+                <p>O campo é um local tranquilo, onde a natureza predomina. A vastidão das plantações, o canto dos pássaros e o verde das árvores criam um ambiente sereno, ideal para quem busca paz e contato direto com a natureza. O campo também é associado à vida rural, onde as pessoas vivem de atividades como agricultura e pecuária.</p>
+            </div>
+        </div>
+
+        <!-- Imagem e texto sobre a Cidade -->
+        <div class="container">
+            <img id="cidadeImg" src="cidade.jpg" alt="Paisagem da Cidade">
+            <div class="text">
+                <h2>A Cidade</h2>
+                <p>A cidade é um lugar dinâmico e agitado, onde o ritmo é mais acelerado. Com ruas movimentadas, edifícios altos e uma infraestrutura mais avançada, a cidade oferece uma infinidade de serviços e oportunidades, mas também pode ser estressante para quem não está acostumado com a correria do cotidiano urbano. Aqui, a vida se mistura entre o concreto e as pessoas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulários de Upload para as Imagens -->
+    <div class="upload-container">
+        <h3>Escolha suas imagens para o campo e a cidade</h3>
+        
+        <!-- Upload de Imagem para o Campo -->
+        <label for="campoUpload">Escolher Imagem do Campo:</label>
+        <input type="file" id="campoUpload" accept="image/*" onchange="carregarImagem('campoImg', this)">
+        
+        <!-- Upload de Imagem para a Cidade -->
+        <label for="cidadeUpload" style="margin-left: 20px;">Escolher Imagem da Cidade:</label>
+        <input type="file" id="cidadeUpload" accept="image/*" onchange="carregarImagem('cidadeImg', this)">
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Campo e Cidade</p>
+    </footer>
+
+    <script>
+        // Função para carregar a imagem selecionada no elemento de imagem
+        function carregarImagem(id, input) {
+            const arquivo = input.files[0];
+            const leitor = new FileReader();
+
+            leitor.onload = function(e) {
+                document.getElementById(id).src = e.target.result;
+            }
+
+            if (arquivo) {
+                leitor.readAsDataURL(arquivo);
+            }
+        }
+    </script>
+
+</body>
+</html>
 
